@@ -92,13 +92,21 @@ photos.forEach((photo, i) => {
         </div>
     `;
     card.addEventListener('click', () => {
+        if (card.classList.contains('flipping')) return;
         if (!card.classList.contains('flipped')) {
-            card.classList.add('flipped');
-            flippedCount++;
-            actualizarProgreso();
-            if (flippedCount === totalPhotos) {
-                showToast('¡Todos los recuerdos desbloqueados! Tocá las fotos para ampliarlas 💕');
-            }
+            const inner = card.querySelector('.card-inner');
+            card.classList.add('flipping');
+            inner.style.transform = 'scaleX(0)';
+            setTimeout(() => {
+                card.classList.add('flipped');
+                inner.style.transform = '';
+                setTimeout(() => card.classList.remove('flipping'), 280);
+                flippedCount++;
+                actualizarProgreso();
+                if (flippedCount === totalPhotos) {
+                    showToast('¡Todos los recuerdos desbloqueados! Tocá las fotos para ampliarlas 💕');
+                }
+            }, 280);
         } else {
             if (flippedCount === totalPhotos) {
                 openLightbox(i);
