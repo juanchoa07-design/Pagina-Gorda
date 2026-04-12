@@ -82,7 +82,7 @@ photos.forEach((photo, i) => {
                 <div class="card-front-hint">✦ toca para ver ✦</div>
             </div>
             <div class="card-back">
-                <img src="${photo.src}" alt="${photo.caption}" loading="lazy">
+                <img src="${photo.src}" alt="${photo.caption}">
                 <div class="photo-overlay">
                     <div class="photo-caption">${photo.caption}</div>
                     <div class="photo-desc">${photo.desc}</div>
