@@ -61,22 +61,70 @@ const photos = [
 const startDate = new Date(2026, 2, 2); // 2 de Marzo 2026
 
 // ── BUILD GALLERY ─────────────────────────────────────────────────
+let flippedCount = 0;
+const totalPhotos = photos.length;
+
 const gallery = document.getElementById('gallery');
 photos.forEach((photo, i) => {
     const card = document.createElement('div');
     card.className = 'photo-card';
     card.style.animationDelay = `${i * 0.07}s`;
     card.innerHTML = `
-        <img src="${photo.src}" alt="${photo.caption}" loading="lazy">
-        <div class="photo-overlay">
-            <div class="photo-caption">${photo.caption}</div>
-            <div class="photo-desc">${photo.desc}</div>
+        <div class="card-inner">
+            <div class="card-front">
+                <div class="card-front-heart">❤️</div>
+                <div class="card-front-text">Un recuerdo</div>
+                <div class="card-front-hint">✦ toca para ver ✦</div>
+            </div>
+            <div class="card-back">
+                <img src="${photo.src}" alt="${photo.caption}" loading="lazy">
+                <div class="photo-overlay">
+                    <div class="photo-caption">${photo.caption}</div>
+                    <div class="photo-desc">${photo.desc}</div>
+                </div>
+                <div class="photo-badge">❤</div>
+            </div>
         </div>
-        <div class="photo-badge">❤</div>
     `;
-    card.addEventListener('click', () => openLightbox(i));
+    card.addEventListener('click', () => {
+        if (!card.classList.contains('flipped')) {
+            card.classList.add('flipped');
+            flippedCount++;
+            actualizarProgreso();
+            if (flippedCount === totalPhotos) {
+                showToast('¡Todos los recuerdos desbloqueados! Tocá las fotos para ampliarlas 💕');
+            }
+        } else {
+            if (flippedCount === totalPhotos) {
+                openLightbox(i);
+            } else {
+                showToast(`Desbloqueá todos los recuerdos primero (${flippedCount}/${totalPhotos})`);
+            }
+        }
+    });
     gallery.appendChild(card);
 });
+
+function actualizarProgreso() {
+    const el = document.getElementById('mem-progress');
+    if (flippedCount === totalPhotos) {
+        el.textContent = '¡Todos desbloqueados! Tocá las fotos para verlas más grandes 💕';
+        el.style.color = 'var(--gold)';
+        el.style.opacity = '1';
+    } else {
+        el.textContent = `${flippedCount} / ${totalPhotos} recuerdos revelados`;
+    }
+}
+
+// ── TOAST ─────────────────────────────────────────────────────────
+let toastTimer;
+function showToast(msg) {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 3200);
+}
 
 // ── COUNTER ───────────────────────────────────────────────────────
 function updateCounter() {
@@ -99,6 +147,19 @@ setInterval(updateCounter, 1000);
 document.getElementById('intro').addEventListener('click', () => {
     document.getElementById('intro').classList.add('hidden');
 });
+
+// ── MOSTRAR / CERRAR RECUERDOS ────────────────────────────────────
+function mostrarRecuerdos() {
+    const overlay = document.getElementById('memories-overlay');
+    overlay.classList.add('active');
+    overlay.scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+}
+
+function cerrarRecuerdos() {
+    document.getElementById('memories-overlay').classList.remove('active');
+    document.body.style.overflow = '';
+}
 
 // ── LIGHTBOX ──────────────────────────────────────────────────────
 let currentIndex = 0;

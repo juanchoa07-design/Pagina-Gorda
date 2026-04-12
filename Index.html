@@ -36,6 +36,22 @@
     <button class="lb-nav lb-next" onclick="navLightbox(1)">›</button>
 </div>
 
+<!-- ── MEMORIES OVERLAY ───────────────────────────── -->
+<div id="memories-overlay">
+    <button class="mem-close" onclick="cerrarRecuerdos()">✕</button>
+    <div class="mem-overlay-inner">
+        <div class="sec-head">
+            <h2>Nuestros <span>recuerdos</span></h2>
+            <p id="mem-progress">Girá todas las tarjetas para desbloquear las fotos</p>
+            <div class="heart-divider">❤</div>
+        </div>
+        <div class="gallery-grid" id="gallery"></div>
+    </div>
+</div>
+
+<!-- ── TOAST ──────────────────────────────────────── -->
+<div id="toast"></div>
+
 <!-- ── PAGE ───────────────────────────────────────── -->
 <main>
 
@@ -47,10 +63,11 @@
             <span class="nickname">mi espollita</span>
         </h1>
         <p class="hero-sub">
-            Cada recuerdo con vos es un tesoro.<br>
-            Gracias por llenar mis días de amor y sonrisas.
+            Gracias por hacer que cada momento valga la pena.<br>
+            No te vayas nunca.
         </p>
         <span class="hero-date">📅 Juntos desde el 2 de Marzo</span>
+        <button class="memories-btn" onclick="mostrarRecuerdos()">Ver nuestros recuerdos ❤</button>
     </section>
 
     <section class="counter-section">
@@ -73,15 +90,6 @@
                 <div class="cnt-unit">segundos</div>
             </div>
         </div>
-    </section>
-
-    <section class="gallery-section">
-        <div class="sec-head">
-            <h2>Nuestros <span>recuerdos</span></h2>
-            <p>Hacé click en una foto para verla más grande</p>
-            <div class="heart-divider">❤</div>
-        </div>
-        <div class="gallery-grid" id="gallery"></div>
     </section>
 
 </main>
