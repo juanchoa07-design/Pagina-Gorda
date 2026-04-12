@@ -36,6 +36,34 @@
     <button class="lb-nav lb-next" onclick="navLightbox(1)">›</button>
 </div>
 
+<!-- ── REAL COUNTER OVERLAY ───────────────────────── -->
+<div id="real-counter-overlay">
+    <button class="mem-close" onclick="cerrarRealCounter()">✕</button>
+    <div class="real-counter-inner">
+        <p class="real-counter-eyebrow">❤ la verdad es... ❤</p>
+        <h2 class="real-counter-title">lo nuestro viene<br><em>de mucho antes</em></h2>
+        <p class="real-counter-sub">📅 desde el 6 de Mayo, 2023</p>
+        <div class="counter-wrap real-counter-wrap">
+            <div class="counter-box">
+                <div class="cnt-num" id="real-cnt-days">—</div>
+                <div class="cnt-unit">días</div>
+            </div>
+            <div class="counter-box">
+                <div class="cnt-num" id="real-cnt-hours">—</div>
+                <div class="cnt-unit">horas</div>
+            </div>
+            <div class="counter-box">
+                <div class="cnt-num" id="real-cnt-minutes">—</div>
+                <div class="cnt-unit">minutos</div>
+            </div>
+            <div class="counter-box">
+                <div class="cnt-num" id="real-cnt-seconds">—</div>
+                <div class="cnt-unit">segundos</div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- ── MEMORIES OVERLAY ───────────────────────────── -->
 <div id="memories-overlay">
     <button class="mem-close" onclick="cerrarRecuerdos()">✕</button>
@@ -46,6 +74,41 @@
             <div class="heart-divider">❤</div>
         </div>
         <div class="gallery-grid" id="gallery"></div>
+    </div>
+</div>
+
+<!-- ── LETTER OVERLAY ─────────────────────────────── -->
+<div id="letter-overlay">
+    <button class="mem-close" onclick="cerrarCarta()">✕</button>
+    <div class="letter-inner">
+        <div class="letter-paper">
+
+            <div class="letter-header">
+                <span class="letter-seal">💌</span>
+                <h2 class="letter-title">Carta del Primer Mes</h2>
+                <p class="letter-date">2 de Abril, 2026</p>
+            </div>
+
+            <div class="letter-body">
+                <p>Bueno gorda dicen que lo bueno demora en llegar por eso vas a recibir esta carta pasado el mes, y como yo soy mas de la tecnología decidí hacerla impresa (no tengo buena letra).</p>
+
+                <p>Llevamos un mes aunque ambos sabemos que lo nuestro es muchísimo más que un mes, aunque hayan experiencias en el medio que no fueron las mejores y fueron dolorosas para los dos, yo decido verlo de una forma que siempre pienso que es, que lo que llega fácil, no durará mucho y lo que dura mucho no llegará fácil.</p>
+
+                <p>No es, sos la mina que, es, <strong>LA mina que SOS</strong>. Desde la primera vez que te vi en aquel XV que tanto recordamos de Bianca que para algo nos sirvió, me flechaste, fuiste la primera mina que atravesó mas que unas ganas o una calentura. Me fui bobo de conocerte aunque hayan sido con unas copas de más. Vos me encantaste con tu carácter, con tu fuerza, con tu nariz (mía), con tu risa, con tu sinceridad, con tu humor, con tu bobez, con tu hermosura (física y personal) con tu todo. Aunque fue todo muy difícil, y aunque capaz te cueste creerme hasta el día de hoy y seguramente más, hasta que te lo demuestre como lo voy a hacer, fuiste la mina que amé y siempre voy a amar. Es verdad que hay acciones que hice que parecieron que no fue así, es verdad, pero me equivoqué y vos me ayudaste a corregirme y darme cuenta y confiaste tantas veces para demostrarme que realmente es así y voy a ir con ese pensamiento toda la vida. <strong>SOS EL AMOR DE MI VIDA</strong> y espero algún día puedas decirlo con seguridad y pensarlo, y puedas decir soy el amor de su vida.</p>
+
+                <p><strong>LA mina que SOS</strong>, me hace darme cuenta que no quiero otra mujer en mi vida que llegue a hacer los roles que hacés vos para la mía y vas a llegar a ser (mamá de 3 hijos). Quiero estar contigo en tus momentos más buenos como en los más malos, porque de eso se trata apoyarnos siempre el uno al otro y lograr las tantas metas que tanto proponemos todos los días, desde la luna de miel en Bora Bora hasta un atardecer en Villa Serrana. Aunque vos me digas que hay que vivir el presente y disfrutarlo jajaja loquita. Literal mientras escribo esta carta me doy cuenta que me quedo corto no solo por lo que siento por vos sino que también de palabras.</p>
+
+                <p><strong>LA mina que SOS</strong>, me hace ver que mi cariño por vos es TANTO, que el único motivo de peleas son temas chotos que por competitividad se agrandan. Cuando estoy con vos abrazados, me siento cuidado. Me siento con una persona que sé que no me traicionaría nunca, un sentimiento muy difícil de encontrar y quiero que lo sepas porque así, como me gusta molestarte y decir que sos fría a veces y te sientas mala novia — cosa que nada que ver y me molesta que lo sientas — quiero que sepas que tenés cosas que valen oro también.</p>
+
+                <p>Y bueno gorda voy a estar para vos toda la vida, sos mi kriptonita, te pienso cuidar como nunca nadie lo haría porque te amo y siempre te voy a amar, infinito al infinito.</p>
+            </div>
+
+            <div class="letter-footer">
+                <p class="letter-pd">PD: Carta apta para que la lea una madre o padre jajaja te amo y tampoco ninguna IA fue utilizada, escrito a dedo digitalmente.</p>
+                <p class="letter-sign">Te amo, es-pollito. ❤</p>
+            </div>
+
+        </div>
     </div>
 </div>
 
@@ -67,7 +130,10 @@
             No te vayas nunca.
         </p>
         <span class="hero-date">📅 Juntos desde el 2 de Marzo</span>
-        <button class="memories-btn" onclick="mostrarRecuerdos()">Ver nuestros recuerdos ❤</button>
+        <div class="hero-buttons">
+            <button class="memories-btn" onclick="mostrarRecuerdos()">Ver nuestros recuerdos ❤</button>
+            <button class="letter-btn" onclick="abrirCarta()">Carta del 1er mes 💌</button>
+        </div>
     </section>
 
     <section class="counter-section">
@@ -90,6 +156,7 @@
                 <div class="cnt-unit">segundos</div>
             </div>
         </div>
+        <button class="secret-btn" onclick="abrirRealCounter()">Pero... ¿solo eso? 👀</button>
     </section>
 
 </main>

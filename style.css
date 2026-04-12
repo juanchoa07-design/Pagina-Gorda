@@ -172,26 +172,161 @@ main { position: relative; z-index: 1; }
     background: rgba(232,0,30,0.08);
 }
 
-.memories-btn {
-    display: inline-block;
+.hero-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
     margin-top: 32px;
+    position: relative;
+    z-index: 1;
+}
+
+.memories-btn {
     padding: 14px 38px;
     background: linear-gradient(135deg, var(--red), var(--hot-pink));
     color: #fff;
     font-family: 'Playfair Display', serif;
     font-size: 1rem;
     font-style: italic;
-    text-decoration: none;
+    border: none;
     border-radius: 50px;
     letter-spacing: 1px;
+    cursor: pointer;
     box-shadow: 0 6px 30px rgba(232,0,30,0.45);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
-    position: relative;
-    z-index: 1;
 }
 .memories-btn:hover {
     transform: translateY(-4px) scale(1.04);
     box-shadow: 0 14px 40px rgba(232,0,30,0.6);
+}
+
+.letter-btn {
+    padding: 13px 38px;
+    background: transparent;
+    color: var(--blush);
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-style: italic;
+    border: 1px solid rgba(232,0,30,0.5);
+    border-radius: 50px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+.letter-btn:hover {
+    background: rgba(232,0,30,0.1);
+    border-color: rgba(232,0,30,0.8);
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 14px 40px rgba(232,0,30,0.3);
+}
+
+/* ── LETTER OVERLAY ───────────────────────────── */
+#letter-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    background: rgba(10, 0, 4, 0.97);
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(40px);
+    transition: opacity 0.45s ease, visibility 0.45s ease, transform 0.45s ease;
+    padding: 70px 24px 90px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+#letter-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.letter-inner {
+    max-width: 700px;
+    width: 100%;
+}
+
+.letter-paper {
+    background: #fdf6ee;
+    border-radius: 6px;
+    padding: 56px 52px 48px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.65), 0 0 0 1px rgba(232,0,30,0.12);
+    position: relative;
+}
+.letter-paper::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(to right, var(--red), var(--hot-pink), var(--red));
+    border-radius: 6px 6px 0 0;
+}
+
+.letter-header {
+    text-align: center;
+    margin-bottom: 36px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(139,26,42,0.15);
+}
+.letter-seal {
+    font-size: 2.8rem;
+    display: block;
+    margin-bottom: 10px;
+}
+.letter-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #8b1a2a;
+    font-weight: 700;
+}
+.letter-date {
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-top: 6px;
+    letter-spacing: 2px;
+    font-family: 'Lato', sans-serif;
+}
+
+.letter-body p {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1rem;
+    color: #2a1616;
+    line-height: 1.9;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+.letter-body strong {
+    color: #8b1a2a;
+    font-style: italic;
+}
+
+.letter-footer {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(139,26,42,0.12);
+}
+.letter-pd {
+    font-family: Georgia, serif;
+    font-size: 0.85rem;
+    color: #888;
+    font-style: italic;
+    margin-bottom: 18px;
+    line-height: 1.7;
+}
+.letter-sign {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: #8b1a2a;
+    text-align: right;
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .letter-paper { padding: 36px 24px 32px; }
+    .letter-title { font-size: 1.6rem; }
+    .letter-body p { font-size: 0.93rem; }
 }
 
 /* ── COUNTER ──────────────────────────────────── */
@@ -297,6 +432,81 @@ main { position: relative; z-index: 1; }
     background: linear-gradient(to right, transparent, rgba(232,0,30,0.6));
 }
 .heart-divider::before { background: linear-gradient(to left, transparent, rgba(232,0,30,0.6)); }
+
+/* ── SECRET BUTTON ────────────────────────────── */
+.secret-btn {
+    display: block;
+    margin: 28px auto 0;
+    background: none;
+    border: none;
+    color: var(--blush);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    cursor: pointer;
+    opacity: 0.35;
+    transition: opacity 0.3s ease, letter-spacing 0.3s ease;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+}
+.secret-btn:hover { opacity: 0.85; letter-spacing: 2px; }
+
+/* ── REAL COUNTER OVERLAY ─────────────────────── */
+#real-counter-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    background: radial-gradient(ellipse at center, #3d0016 0%, #1a0007 70%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 24px;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.97);
+    transition: opacity 0.45s ease, visibility 0.45s ease, transform 0.45s ease;
+}
+#real-counter-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+.real-counter-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.85;
+    margin-bottom: 22px;
+}
+.real-counter-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    color: var(--white);
+    line-height: 1.2;
+}
+.real-counter-title em {
+    font-style: italic;
+    background: linear-gradient(135deg, var(--hot-pink) 0%, var(--gold) 50%, var(--pink) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.real-counter-sub {
+    margin-top: 16px;
+    font-size: 0.82rem;
+    color: var(--blush);
+    opacity: 0.55;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+.real-counter-wrap {
+    margin-top: 44px;
+}
 
 /* ── MEMORIES OVERLAY ─────────────────────────── */
 #memories-overlay {

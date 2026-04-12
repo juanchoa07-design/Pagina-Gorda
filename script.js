@@ -3,27 +3,27 @@ const photos = [
     {
         src: "Fotos Julieta/Aniversario.jpeg",
         caption: "Aniversario 💕",
-        desc: "Uno de mis momentos favoritos con vos."
+        desc: "Uno de nuestros momentos más importantes."
     },
     {
         src: "Fotos Julieta/Playa.jpg",
         caption: "En la playa 🏖️",
-        desc: "El mar te queda perfecto."
+        desc: "Te llevo a todos lados aunque no estemos juntos."
     },
     {
         src: "Fotos Julieta/Cute.jpeg",
-        caption: "Así de linda sos 🥰",
-        desc: "No lo podés negar."
+        caption: "Nosotros ? Lindos 🥰",
+        desc: "Genética buena para Bauti, Benja y Rena."
     },
     {
         src: "Fotos Julieta/Modelo.jpeg",
         caption: "Mi modelo favorita ✨",
-        desc: "Siempre tan elegante."
+        desc: "Siempre tan hermosa."
     },
     {
         src: "Fotos Julieta/Ella.jpeg",
         caption: "Ella 💖",
-        desc: "La persona que más quiero."
+        desc: "La persona que más amo."
     },
     {
         src: "Fotos Julieta/Besito parlante.jpeg",
@@ -33,7 +33,7 @@ const photos = [
     {
         src: "Fotos Julieta/Mascara.jpeg",
         caption: "Hermosa 💄",
-        desc: "Te ponés cualquier cosa y seguís siendo lo más."
+        desc: "Te ponés cualquier cosa y seguís siendo hermosa."
     },
     {
         src: "Fotos Julieta/Sillon.jpeg",
@@ -42,8 +42,8 @@ const photos = [
     },
     {
         src: "Fotos Julieta/Fachas.jpeg",
-        caption: "Fachas y todo linda 😄",
-        desc: "Incluso en los días casuales sos perfecta."
+        caption: "Intenso...❤️‍🔥",
+        desc: "Por vos me saco el corazón y lo pongo en la mesa."
     },
     {
         src: "Fotos Julieta/lengua.jpeg",
@@ -52,8 +52,13 @@ const photos = [
     },
     {
         src: "Fotos Julieta/Ducha.jpeg",
-        caption: "Natural beauty 🌸",
-        desc: "Siempre tan vos."
+        caption: "Duchas 🚿",
+        desc: "Por infinitas duchas más juntos."
+    },
+    {
+        src: "Fotos Julieta/Siesta.jpg",
+        caption: "La siesta 😴",
+        desc: "No hay momento en el cual te veas mal."
     }
 ];
 
@@ -127,6 +132,34 @@ function showToast(msg) {
 }
 
 // ── COUNTER ───────────────────────────────────────────────────────
+const realStartDate = new Date(2023, 4, 6); // 6 de Mayo 2023
+
+function updateRealCounter() {
+    const now  = new Date();
+    const diff = now - realStartDate;
+    if (diff < 0) return;
+    const days    = Math.floor(diff / 86400000);
+    const hours   = Math.floor((diff % 86400000) / 3600000);
+    const minutes = Math.floor((diff % 3600000)  / 60000);
+    const seconds = Math.floor((diff % 60000)    / 1000);
+    document.getElementById('real-cnt-days').textContent    = days.toLocaleString('es');
+    document.getElementById('real-cnt-hours').textContent   = String(hours).padStart(2, '0');
+    document.getElementById('real-cnt-minutes').textContent = String(minutes).padStart(2, '0');
+    document.getElementById('real-cnt-seconds').textContent = String(seconds).padStart(2, '0');
+}
+updateRealCounter();
+setInterval(updateRealCounter, 1000);
+
+function abrirRealCounter() {
+    document.getElementById('real-counter-overlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function cerrarRealCounter() {
+    document.getElementById('real-counter-overlay').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
 function updateCounter() {
     const now  = new Date();
     const diff = now - startDate;
@@ -158,6 +191,19 @@ function mostrarRecuerdos() {
 
 function cerrarRecuerdos() {
     document.getElementById('memories-overlay').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// ── ABRIR / CERRAR CARTA ──────────────────────────────────────────
+function abrirCarta() {
+    const overlay = document.getElementById('letter-overlay');
+    overlay.classList.add('active');
+    overlay.scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+}
+
+function cerrarCarta() {
+    document.getElementById('letter-overlay').classList.remove('active');
     document.body.style.overflow = '';
 }
 
