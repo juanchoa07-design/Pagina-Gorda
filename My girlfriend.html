@@ -1,11 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Para Julieta 💕</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+
+<!-- ── INTRO ─────────────────────────────────────── -->
+<div id="intro">
+    <div class="intro-hearts">
+        <span>🤍</span><span>❤️</span><span>🤍</span>
+    </div>
+    <h1 class="intro-title">
+        Para mi<br>
+        <em>Espollita</em>
+    </h1>
+    <p class="intro-sub">con todo mi amor</p>
+    <p class="intro-hint">✦ toca para entrar ✦</p>
+</div>
+
+<!-- ── FLOATING HEARTS CANVAS ─────────────────────── -->
+<canvas id="bg-canvas"></canvas>
+
+<!-- ── LIGHTBOX ───────────────────────────────────── -->
+<div id="lightbox">
+    <button class="lb-close" onclick="closeLightbox()">✕</button>
+    <button class="lb-nav lb-prev" onclick="navLightbox(-1)">‹</button>
+    <img id="lightbox-img" src="" alt="">
+    <div class="lb-info">
+        <h3 id="lb-title"></h3>
+        <p  id="lb-desc"></p>
+    </div>
+    <button class="lb-nav lb-next" onclick="navLightbox(1)">›</button>
+</div>
+
+<!-- ── PAGE ───────────────────────────────────────── -->
+<main>
+
+    <section class="hero">
+        <p class="hero-eyebrow">❤ nuestra historia ❤</p>
+        <h1>
+            Para mi amor,
+            <span class="name">Julieta</span>
+            <span class="nickname">mi espollita</span>
+        </h1>
+        <p class="hero-sub">
+            Cada recuerdo con vos es un tesoro.<br>
+            Gracias por llenar mis días de amor y sonrisas.
+        </p>
+        <span class="hero-date">📅 Juntos desde el 2 de Marzo</span>
+    </section>
+
+    <section class="counter-section">
+        <p class="counter-label">❤ llevamos juntos ❤</p>
+        <div class="counter-wrap">
+            <div class="counter-box">
+                <div class="cnt-num" id="cnt-days">—</div>
+                <div class="cnt-unit">días</div>
+            </div>
+            <div class="counter-box">
+                <div class="cnt-num" id="cnt-hours">—</div>
+                <div class="cnt-unit">horas</div>
+            </div>
+            <div class="counter-box">
+                <div class="cnt-num" id="cnt-minutes">—</div>
+                <div class="cnt-unit">minutos</div>
+            </div>
+            <div class="counter-box">
+                <div class="cnt-num" id="cnt-seconds">—</div>
+                <div class="cnt-unit">segundos</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="sec-head">
+            <h2>Nuestros <span>recuerdos</span></h2>
+            <p>Hacé click en una foto para verla más grande</p>
+            <div class="heart-divider">❤</div>
+        </div>
+        <div class="gallery-grid" id="gallery"></div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="footer-hearts">❤️</div>
+    <p class="footer-msg">
+        Te quiero muchísimo,<br>
+        <em>mi espollita hermosa.</em>
+    </p>
+    <small>hecho con amor · 2 de marzo</small>
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
