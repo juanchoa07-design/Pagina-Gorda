@@ -124,6 +124,9 @@ function actualizarProgreso() {
         el.textContent = '¡Todos desbloqueados! Tocá las fotos para verlas más grandes 💕';
         el.style.color = 'var(--gold)';
         el.style.opacity = '1';
+        const btn = document.getElementById('premium-btn');
+        btn.classList.remove('locked');
+        btn.textContent = '⭐ Recuerdo Premium';
     } else {
         el.textContent = `${flippedCount} / ${totalPhotos} recuerdos revelados`;
     }
@@ -200,6 +203,25 @@ function mostrarRecuerdos() {
 function cerrarRecuerdos() {
     document.getElementById('memories-overlay').classList.remove('active');
     document.body.style.overflow = '';
+}
+
+// ── ABRIR / CERRAR RECUERDO PREMIUM ──────────────────────────────
+function intentarPremium() {
+    if (flippedCount < totalPhotos) {
+        showToast(`Desbloqueá todos los recuerdos primero (${flippedCount}/${totalPhotos})`);
+        return;
+    }
+    abrirPremium();
+}
+
+function abrirPremium() {
+    document.getElementById('premium-overlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function cerrarPremium() {
+    document.getElementById('premium-overlay').classList.remove('active');
+    document.body.style.overflow = 'hidden';
 }
 
 // ── ABRIR / CERRAR CARTA ──────────────────────────────────────────
