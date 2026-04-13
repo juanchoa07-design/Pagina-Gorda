@@ -32,7 +32,7 @@ const photos = [
     },
     {
         src: "Fotos Julieta/Mascara.jpeg",
-        caption: "Hermosa 💄",
+        caption: "Hermosha 💄",
         desc: "Te ponés cualquier cosa y seguís siendo hermosa."
     },
     {
