@@ -1073,9 +1073,13 @@ footer small {
 /* ── RESPONSIVE ───────────────────────────────── */
 @media (max-width: 768px) {
     #real-counter-overlay {
-        background:
-            radial-gradient(ellipse at center, rgba(61,0,22,0.80) 0%, rgba(26,0,7,0.90) 70%),
-            url('Fotos Julieta/Bla 2.jpg') center/cover no-repeat;
+        background-color: #1a0007;
+        background-image:
+            radial-gradient(ellipse at center, rgba(61,0,22,0.80) 0%, rgba(26,0,7,0.92) 70%),
+            url('Fotos Julieta/Bla 2.jpg');
+        background-size: auto, contain;
+        background-position: center, center;
+        background-repeat: no-repeat, no-repeat;
     }
 
     .gallery-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
