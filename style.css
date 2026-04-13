@@ -574,12 +574,12 @@ main { position: relative; z-index: 1; }
     inset: 0;
     z-index: 500;
     background: var(--dark);
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
     opacity: 0;
     visibility: hidden;
     transform: translateY(40px);
     transition: opacity 0.45s ease, visibility 0.45s ease, transform 0.45s ease;
-    padding: 80px 24px 90px;
 }
 #memories-overlay.active {
     opacity: 1;
@@ -587,8 +587,15 @@ main { position: relative; z-index: 1; }
     transform: translateY(0);
 }
 
+.mem-scroll-area {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 70px 24px 20px;
+}
+
 .mem-close {
-    position: fixed;
+    position: absolute;
     top: 20px;
     right: 24px;
     background: rgba(232,0,30,0.18);
@@ -624,9 +631,10 @@ main { position: relative; z-index: 1; }
 
 /* ── PREMIUM BUTTON ───────────────────────────── */
 .premium-btn-wrap {
+    flex-shrink: 0;
     text-align: center;
-    margin-top: 50px;
-    padding-bottom: 10px;
+    padding: 16px 24px 28px;
+    background: linear-gradient(to bottom, transparent, var(--dark) 35%);
 }
 .premium-btn {
     padding: 15px 44px;

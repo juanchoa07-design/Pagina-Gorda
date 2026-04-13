@@ -68,16 +68,18 @@
 <!-- ── MEMORIES OVERLAY ───────────────────────────── -->
 <div id="memories-overlay">
     <button class="mem-close" onclick="cerrarRecuerdos()">✕</button>
-    <div class="mem-overlay-inner">
-        <div class="sec-head">
-            <h2>Nuestros <span>recuerdos</span></h2>
-            <p id="mem-progress">Girá todas las tarjetas para desbloquear las fotos</p>
-            <div class="heart-divider">❤</div>
+    <div class="mem-scroll-area">
+        <div class="mem-overlay-inner">
+            <div class="sec-head">
+                <h2>Nuestros <span>recuerdos</span></h2>
+                <p id="mem-progress">Girá todas las tarjetas para desbloquear las fotos</p>
+                <div class="heart-divider">❤</div>
+            </div>
+            <div class="gallery-grid" id="gallery"></div>
         </div>
-        <div class="gallery-grid" id="gallery"></div>
-        <div class="premium-btn-wrap">
-            <button class="premium-btn locked" id="premium-btn" onclick="intentarPremium()">🔒 Recuerdo Premium</button>
-        </div>
+    </div>
+    <div class="premium-btn-wrap">
+        <button class="premium-btn locked" id="premium-btn" onclick="intentarPremium()">🔒 Recuerdo Premium</button>
     </div>
 </div>
 
