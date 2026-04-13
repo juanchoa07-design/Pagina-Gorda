@@ -633,8 +633,7 @@ main { position: relative; z-index: 1; }
 .premium-btn-wrap {
     flex-shrink: 0;
     text-align: center;
-    padding: 16px 24px 28px;
-    background: linear-gradient(to bottom, transparent, var(--dark) 35%);
+    padding: 70px 24px 16px;
 }
 .premium-btn {
     padding: 15px 44px;
